@@ -1,0 +1,32 @@
+<ion-content fullscreen class="ion-padding login-page">
+  <div class="icon-container" aria-hidden="true">
+    <ion-icon name="time-outline"></ion-icon>
+    <ion-icon name="cash-outline"></ion-icon>
+  </div>
+
+  <h1 class="title" aria-label="Veridia">VERIDIA</h1>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm" novalidate>
+    <ion-item>
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input [(ngModel)]="usuario.nombre" name="nombre" required aria-required="true"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.contrasena" name="contrasena" required aria-required="true"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" class="login-btn" [disabled]="!loginForm.form.valid">
+      Iniciar sesión
+    </ion-button>
+  </form>
+
+  <div class="register-link" role="link" tabindex="0" (click)="goToRegistro()" (keydown.enter)="goToRegistro()">
+    Registrarse
+  </div>
+
+  <div class="bottom-image" aria-hidden="true">
+    <img src="assets/images/money.jpg" alt="Dinero">
+  </div>
+</ion-content>

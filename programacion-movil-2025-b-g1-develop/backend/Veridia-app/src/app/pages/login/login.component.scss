@@ -1,0 +1,46 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 40px;
+  margin-top: 20px;
+  color: #3b82f6; /* Azul */
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+ion-item {
+  margin-bottom: 15px;
+}
+
+.login-btn {
+  margin-top: 20px;
+  background-color: #3b82f6;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.register-link {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+.bottom-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-top: 20px;
+}
