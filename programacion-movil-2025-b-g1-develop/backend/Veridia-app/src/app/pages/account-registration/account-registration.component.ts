@@ -1,57 +1,39 @@
 import { Component } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, LoadingController, ToastController } from '@ionic/angular';
-import { AuthService } from '../../core/services/auth';
 
 @Component({
-  standalone: true,
-  selector: 'app-account-registration',
-  imports: [CommonModule, FormsModule, IonicModule, RouterModule],
+  selector: 'app-accounts-registration',
   templateUrl: './account-registration.component.html',
-  styleUrls: ['./account-registration.component.scss']
+  styleUrls: ['./account-registration.component.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule, FormsModule, NgIf, NgFor]
 })
-export class AccountRegistrationComponent {
-  modelo = { nombre: '', email: '', password: '' };
+export class AccountsRegistrationComponent {
+  nuevaCuenta = {
+    nombre: '',
+    fecha: '',
+    descripcion: '',
+    valor: null
+  };
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private loadingCtrl: LoadingController,
-    private toastCtrl: ToastController
-  ) {}
+  cuentasGuardadas: any[] = [];
 
-  async registrar() {
-    if (!this.modelo.nombre || !this.modelo.email || !this.modelo.password) {
-      return this.showToast('Completa todos los campos.');
+  constructor() {}
+
+  guardarCuenta() {
+    if (!this.nuevaCuenta.nombre || !this.nuevaCuenta.fecha || !this.nuevaCuenta.descripcion || !this.nuevaCuenta.valor) {
+      alert('Por favor, complete todos los campos.');
+      return;
     }
 
-    const loading = await this.loadingCtrl.create({ message: 'Registrando...' });
-    await loading.present();
+    // Guardar cuenta
+    this.cuentasGuardadas.push({ ...this.nuevaCuenta });
 
-    try {
-      const ok = await this.authService.register(this.modelo.nombre, this.modelo.email, this.modelo.password);
-      await loading.dismiss();
-      if (ok) {
-        await this.showToast('Registro exitoso. Puedes iniciar sesión.');
-        this.router.navigate(['/login']);
-      } else {
-        this.showToast('El email ya está registrado.');
-      }
-    } catch (err) {
-      await loading.dismiss();
-      console.error('Registro error', err);
-      this.showToast('Error al registrar. Intenta de nuevo.');
-    }
-  }
+    // Limpiar formulario
+    this.nuevaCuenta = { nombre: '', fecha: '', descripcion: '', valor: null };
 
-  backToLogin() {
-    this.router.navigate(['/login']);
-  }
-
-  private async showToast(message: string) {
-    const t = await this.toastCtrl.create({ message, duration: 2000, position: 'bottom' });
-    await t.present();
+    alert('✅ Cuenta registrada con éxito.');
   }
 }

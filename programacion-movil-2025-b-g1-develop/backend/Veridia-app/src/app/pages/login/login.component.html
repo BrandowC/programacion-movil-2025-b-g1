@@ -1,32 +1,38 @@
-<ion-content fullscreen class="ion-padding login-page">
-  <div class="icon-container" aria-hidden="true">
-    <ion-icon name="time-outline"></ion-icon>
-    <ion-icon name="cash-outline"></ion-icon>
+<ion-content class="login-page ion-padding">
+  <!-- Encabezado -->
+  <div class="header">
+    <ion-icon name="wallet-outline" class="app-icon"></ion-icon>
+    <h1>Control de Cuentas</h1>
+    <p>Organiza tus ingresos y gastos fácilmente 📊</p>
   </div>
 
-  <h1 class="title" aria-label="Veridia">VERIDIA</h1>
-
-  <form (ngSubmit)="login()" #loginForm="ngForm" novalidate>
-    <ion-item>
+  <!-- Formulario -->
+  <form (ngSubmit)="login()" class="login-form">
+    <ion-item lines="full">
       <ion-label position="floating">Usuario</ion-label>
-      <ion-input [(ngModel)]="usuario.nombre" name="nombre" required aria-required="true"></ion-input>
+      <ion-input [(ngModel)]="usuario.nombre" name="nombre" required></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item lines="full">
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="usuario.contrasena" name="contrasena" required aria-required="true"></ion-input>
+      <ion-input type="password" [(ngModel)]="usuario.contrasena" name="contrasena" required></ion-input>
     </ion-item>
 
-    <ion-button expand="block" type="submit" class="login-btn" [disabled]="!loginForm.form.valid">
-      Iniciar sesión
+    <ion-button expand="block" color="primary" type="submit" class="login-btn">
+      Iniciar Sesión
     </ion-button>
   </form>
 
-  <div class="register-link" role="link" tabindex="0" (click)="goToRegistro()" (keydown.enter)="goToRegistro()">
-    Registrarse
+  <!-- Enlace de registro -->
+  <div class="register-container">
+    <p>¿No tienes una cuenta?</p>
+    <ion-button fill="clear" color="success" (click)="goToRegistro()">
+      Crear una cuenta
+    </ion-button>
   </div>
 
-  <div class="bottom-image" aria-hidden="true">
-    <img src="assets/images/money.jpg" alt="Dinero">
+  <!-- Imagen inferior -->
+  <div class="bottom-image">
+    <img src="assets/img/money-illustration.svg" alt="Control financiero" />
   </div>
 </ion-content>

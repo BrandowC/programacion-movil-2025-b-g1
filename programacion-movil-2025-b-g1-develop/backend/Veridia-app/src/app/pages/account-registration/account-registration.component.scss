@@ -1,16 +1,23 @@
-.register-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  min-height: 100%;
-  .title {
-    text-align: center;
-    font-size: 24px;
-    margin: 18px 0;
-    font-weight: 600;
-  }
-  ion-item { margin: 0 1rem 12px 1rem; }
-  .register-btn { margin: 0 1rem 16px 1rem; --background: var(--ion-color-primary); }
-  .back-link { text-align: center; color: var(--ion-color-primary); margin-top: 8px; cursor: pointer; }
+ion-item {
+  margin-bottom: 10px;
+}
+
+.guardar-btn {
+  margin-top: 20px;
+  --border-radius: 10px;
+}
+
+.cuentas-list {
+  margin-top: 30px;
+}
+
+ion-list-header {
+  font-weight: bold;
+  color: var(--ion-color-primary);
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
 }

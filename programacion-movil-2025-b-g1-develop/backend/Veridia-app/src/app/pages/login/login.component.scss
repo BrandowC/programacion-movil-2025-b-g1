@@ -3,44 +3,66 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  background: linear-gradient(180deg, #e8f0ff 0%, #ffffff 100%);
+  min-height: 100vh;
 }
 
-.icon-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  font-size: 40px;
-  margin-top: 20px;
-  color: #3b82f6; /* Azul */
+.header {
+  margin-top: 40px;
 }
 
-.title {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 15px 0;
+.app-icon {
+  font-size: 60px;
+  color: #3b82f6;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #222;
+}
+
+p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 25px;
 }
 
 ion-item {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+  --highlight-color-focused: #3b82f6;
 }
 
 .login-btn {
-  margin-top: 20px;
-  background-color: #3b82f6;
-  border-radius: 8px;
+  margin-top: 15px;
   font-weight: bold;
+  --border-radius: 10px;
+  --background: #3b82f6;
+  --background-activated: #2563eb;
+  --box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
-.register-link {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #3b82f6;
-  cursor: pointer;
+.register-container {
+  margin-top: 25px;
+}
+
+.register-container p {
+  font-size: 15px;
+  color: #333;
+}
+
+ion-button[color="success"] {
+  font-weight: bold;
+  --border-radius: 10px;
+}
+
+.bottom-image {
+  margin-top: 30px;
 }
 
 .bottom-image img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  margin-top: 20px;
+  height: 180px;
+  object-fit: contain;
 }

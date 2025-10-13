@@ -34,7 +34,7 @@ export class LoginComponent {
       const ok = await this.authService.login(this.usuario.nombre, this.usuario.contrasena);
       await loading.dismiss();
       if (ok) {
-        this.router.navigate(['/accounts']); // ajustar si creas esa ruta
+        this.router.navigate(['/accounts']);
       } else {
         this.showToast('Usuario o contraseña incorrectos.');
       }
@@ -46,7 +46,7 @@ export class LoginComponent {
   }
 
   goToRegistro() {
-    this.router.navigate(['/registro']);
+    this.router.navigate(['/register']); // ✅ Redirige correctamente al componente Register
   }
 
   private async showToast(message: string) {
